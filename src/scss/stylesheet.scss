@@ -2,7 +2,7 @@
 // src > scss > stylesheet
 // Copyright © 2020 Ayden Gebran. All rights reserved.
 // Created by Ayden Gebran on 6 October 2020
-// Updated October 2020 (Version 1.0)
+// Updated 8 October 2020 (Version 1.0)
 
 // Colors
 
@@ -21,6 +21,7 @@ $font-serif: -apple-system-ui-serif, ui-serif, Georgia, serif;
 
 @mixin text-outline($color) {
 	text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
+	text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
 }
 
 // Size Classes
@@ -28,10 +29,10 @@ $font-serif: -apple-system-ui-serif, ui-serif, Georgia, serif;
 $page-margin: 40px;
 $page-max-width: 900px;
 .page-width {
-	padding-left: calc((100% - #{$page-max-width}) / 2 + #{$page-margin});
-	padding-right: calc((100% - #{$page-max-width}) / 2 + #{$page-margin});
+	padding-left: calc(50% - #{$page-max-width / 2});
+	padding-right: calc(50% - #{$page-max-width / 2});
 }
-@media only screen and (max-width: $page-max-width) {
+@media only screen and (max-width: $page-max-width + 2 * $page-margin) {
 	.page-width {
 		padding-left: $page-margin;
 		padding-right: $page-margin;
@@ -125,8 +126,9 @@ main {
 	display: flex;
 	height: calc(100vh - 64px);
 	justify-content: space-between;
+	position: relative;
 	.text-container {
-		max-width: 400px;
+		max-width: 450px;
 	}
 	h1 {
 		color: hsl(0, 0, 65);
@@ -157,11 +159,39 @@ main {
 			width: 30px;
 		}
 	}
+	#images-container {
+		bottom: -1px;
+		display: inline-block;
+		height: calc(100vh - #{30px + 64px});
+		margin-right: calc(50% - #{$page-max-width / 2});
+		position: fixed;
+		right: 0;
+	}
 	img {
 		display: inline-block;
-		height: calc(100% - 30px);
-		margin-top: 31px;
-		object-fit: contain;
+		object-fit: cover;
+	}
+	#hero-image {
+		height: 100%;
+		margin-bottom: 100%;
+		object-position: left top;
+		width: calc(#{371 / 667} * (100vh - 94px));
+	}
+	#design-image {
+		bottom: 0;
+		height: 0;
+		left: 0;
+		object-position: left bottom;
+		position: absolute;
+		width: 100%;
+	}
+	&::after {
+		background: url(../images/scroll-indicator.svg) no-repeat;
+		bottom: 30px;
+		content: "";
+		height: 84px;
+		position: absolute;
+		width: 9px;
 	}
 }
 
@@ -174,6 +204,18 @@ section {
 	p {
 		color: hsl(0, 0, 55);
 		font-size: 16px;
+	}
+	.section-header {
+		padding-top: 120px;
+		h2 {
+			margin: 0;
+			text-align: center;
+		}
+		p {
+			margin: 5px auto 90px;
+			max-width: 530px;
+			text-align: center;
+		}
 	}
 }
 
@@ -204,25 +246,42 @@ section {
 	img {
 		display: inline-block;
 		height: calc(100vh - #{64px + 30px});
+		visibility: hidden;
 	}
 }
 
 #materials {
 	background-color: hsl(0, 0, 96);
 	padding-bottom: 140px;
-	padding-top: 120px;
 	.section-header {
 		h2 {
 			color: hsl(0, 0, 96);
-			margin: 0;
-			text-align: center;
-		}
-		p {
-			margin: 5px 0 90px;
-			text-align: center;
 		}
 	}
 	.material {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 28px;
+		img {
+			height: 240px;
+			margin-bottom: -100%;
+			margin-left: 85px;
+			object-fit: contain;
+			width: 330px;
+		}
+		#rhodium {
+			z-index: 3;
+		}
+		#stainless-steel {
+			z-index: 2;
+		}
+		#rosewood {
+			z-index: 1;
+		}
+		.text-container {
+			padding: 0 55px 0 35px;
+			width: calc(50% - #{55px + 35px});
+		}
 		h3 {
 			color: hsl(0, 0, 15);
 			font: 500 24px $font-serif;
@@ -230,6 +289,16 @@ section {
 		}
 		p {
 			margin: 9px 0 0;
+		}
+	}
+}
+
+#gallery {
+	background-color: hsl(0, 0, 96);
+	padding-bottom: 120px;
+	.section-header {
+		h2 {
+			color: hsl(0, 0, 96);
 		}
 	}
 }

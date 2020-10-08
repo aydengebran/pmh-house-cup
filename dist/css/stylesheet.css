@@ -1,9 +1,9 @@
 .page-width {
-  padding-left: calc((100% - 900px) / 2 + 40px);
-  padding-right: calc((100% - 900px) / 2 + 40px);
+  padding-left: calc(50% - 450px);
+  padding-right: calc(50% - 450px);
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 980px) {
   .page-width {
     padding-left: 40px;
     padding-right: 40px;
@@ -87,10 +87,11 @@ main {
   display: flex;
   height: calc(100vh - 64px);
   justify-content: space-between;
+  position: relative;
 }
 
 #hero .text-container {
-  max-width: 400px;
+  max-width: 450px;
 }
 
 #hero h1 {
@@ -134,14 +135,47 @@ main {
   width: 30px;
 }
 
+#hero #images-container {
+  bottom: -1px;
+  display: inline-block;
+  height: calc(100vh - 94px);
+  margin-right: calc(50% - 450px);
+  position: fixed;
+  right: 0;
+}
+
 #hero img {
   display: inline-block;
-  height: calc(100% - 30px);
-  margin-top: 31px;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+#hero #hero-image {
+  height: 100%;
+  margin-bottom: 100%;
+  object-position: left top;
+  width: calc(371/667 * (100vh - 94px));
+}
+
+#hero #design-image {
+  bottom: 0;
+  height: 0;
+  left: 0;
+  object-position: left bottom;
+  position: absolute;
+  width: 100%;
+}
+
+#hero::after {
+  background: url(../images/scroll-indicator.svg) no-repeat;
+  bottom: 30px;
+  content: "";
+  height: 84px;
+  position: absolute;
+  width: 9px;
 }
 
 section h2 {
+  text-shadow: -1px 0 #595959, 0 1px #595959, 1px 0 #595959, 0 -1px #595959;
   text-shadow: -1px 0 #595959, 0 1px #595959, 1px 0 #595959, 0 -1px #595959;
   color: white;
   font: 400 100px -apple-system-ui-serif, ui-serif, Georgia, serif;
@@ -150,6 +184,21 @@ section h2 {
 section p {
   color: #8c8c8c;
   font-size: 16px;
+}
+
+section .section-header {
+  padding-top: 120px;
+}
+
+section .section-header h2 {
+  margin: 0;
+  text-align: center;
+}
+
+section .section-header p {
+  margin: 5px auto 90px;
+  max-width: 530px;
+  text-align: center;
 }
 
 #design {
@@ -185,23 +234,47 @@ section p {
 #design img {
   display: inline-block;
   height: calc(100vh - 94px);
+  visibility: hidden;
 }
 
 #materials {
   background-color: whitesmoke;
   padding-bottom: 140px;
-  padding-top: 120px;
 }
 
 #materials .section-header h2 {
   color: whitesmoke;
-  margin: 0;
-  text-align: center;
 }
 
-#materials .section-header p {
-  margin: 5px 0 90px;
-  text-align: center;
+#materials .material {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+#materials .material img {
+  height: 240px;
+  margin-bottom: -100%;
+  margin-left: 85px;
+  object-fit: contain;
+  width: 330px;
+}
+
+#materials .material #rhodium {
+  z-index: 3;
+}
+
+#materials .material #stainless-steel {
+  z-index: 2;
+}
+
+#materials .material #rosewood {
+  z-index: 1;
+}
+
+#materials .material .text-container {
+  padding: 0 55px 0 35px;
+  width: calc(50% - 90px);
 }
 
 #materials .material h3 {
@@ -212,4 +285,13 @@ section p {
 
 #materials .material p {
   margin: 9px 0 0;
+}
+
+#gallery {
+  background-color: whitesmoke;
+  padding-bottom: 120px;
+}
+
+#gallery .section-header h2 {
+  color: whitesmoke;
 }
