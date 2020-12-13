@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - The Marist House Cup</title>
+  <link rel="stylesheet" href="./css/signin.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="page-width">
+      <a href="https://www.parramarist.catholic.edu.au" target="_blank">
+        <img src="./images/logo.svg" alt="Logo">
+      </a>
+    </div>
+  </header>
+  <img id="loading" src="./images/loading.gif" alt="Loading">
+  <div id="error" style="display: none;">
+    <h2>Error</h2>
+    <p id="message"></p>
+    <p>Try signing in again with your school email address.</p>
+    <button>Sign In</button>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+  <script src="./js/init-firebase.js"></script>
+  <script async src="./js/signin.js"></script>
+</body>
+</html>

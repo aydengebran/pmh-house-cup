@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Podium - The Marist House Cup</title>
+  <link rel="stylesheet" href="./css/podium.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="page-width">
+			<a class="logo" href="./index.html">
+        <img src="./images/logo.svg" alt="Logo">
+      </a>
+      <nav>
+        <ul>
+          <li id="podium-link" class="active"><a href="#">The Podium</a></li>
+          <li id="points-link" style="display: none;"><a href="#points">Add Points</a></li>
+        </ul>
+      </nav>
+      <a id="sign-out" class="link" href="#">Sign Out</a>
+    </div>
+  </header>
+  <main>
+    <section id="podium" class="page-width">
+      <div class="background">
+        <div id="first">
+          <strong>First</strong>
+          <span class="house"></span>
+          <span class="points"></span>
+        </div>
+        <div id="second">
+          <strong>Second</strong>
+          <span class="house"></span>
+          <span class="points"></span>
+        </div>
+        <div id="third">
+          <strong>Third</strong>
+          <span class="house"></span>
+          <span class="points"></span>
+        </div>
+        <div id="fourth">
+          <strong>Fourth</strong>
+          <span class="house"></span>
+          <span class="points"></span>
+        </div>
+      </div>
+    </section>
+    <div id="add-points-popup" class="popup" style="display: none;">
+      <div class="popup-content">
+        <h3>Add Points</h3>
+        <div id="permissions-container" style="display: none;">
+          <label style="font-weight: 400;">You do not currently have permission to add points. If you believe this is an error, please contact <a>support@pmhhousecup.com</a></label>
+        </div>
+        <div id="kla-container">
+          <label>KLA/Year Group</label>
+          <select id="kla"></select>
+        </div>
+        <div id="activity-container" style="display: none;">
+          <label>Activity</label>
+          <select id="activity"></select>
+        </div>
+        <div id="points-container" style="display: none;">
+          <label>Points <span id="remaining-points"></span></label>
+          <div class="stepper">
+            <ul>
+              <li class="left">
+                <img src="./images/stepper-left.svg"/>
+              </li>
+              <li class="input-container">
+                <input type="number" min="1" max="50" step="1" value="1">
+              </li>
+              <li class="right">
+                <img src="./images/stepper-right.svg"/>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="house-container" style="display: none;">
+          <label>House <span id="selected-house"></span></label>
+          <div id="house-buttons">
+            <a id="campion">
+              <svg width="36px" height="49px" viewBox="0 0 36 49">
+                <g stroke="none">
+                  <circle fill="#E02020" cx="18" cy="18" r="18"></circle>
+                  <g class="selected-container" style="display: none;">
+                    <polyline fill="#E02020" opacity="0.6" points="10 19 10 49 18 41 26 49 26 19"></polyline>
+                    <polygon fill="#FFFFFF" points="18 23 12.1221475 26.0901699 13.2447174 19.545085 8.48943484 14.9098301 15.0610737 13.954915 18 8 20.9389263 13.954915 27.5105652 14.9098301 22.7552826 19.545085 23.8778525 26.0901699"></polygon>
+                  </g>
+                </g>
+              </svg>
+            </a>
+            <a id="alman">
+              <svg width="36px" height="49px" viewBox="0 0 36 49">
+                <g stroke="none">
+                  <circle fill="#F7CA00" cx="18" cy="18" r="18"></circle>
+                  <g class="selected-container" style="display: none;">
+                    <polyline fill="#F7CA00" opacity="0.6" points="10 19 10 49 18 41 26 49 26 19"></polyline>
+                    <polygon fill="#FFFFFF" points="18 23 12.1221475 26.0901699 13.2447174 19.545085 8.48943484 14.9098301 15.0610737 13.954915 18 8 20.9389263 13.954915 27.5105652 14.9098301 22.7552826 19.545085 23.8778525 26.0901699"></polygon>
+                  </g>
+                </g>
+              </svg>
+            </a>
+            <a id="harroway">
+              <svg width="36px" height="49px" viewBox="0 0 36 49">
+                <g stroke="none">
+                  <circle fill="#34CB00" cx="18" cy="18" r="18"></circle>
+                  <g class="selected-container" style="display: none;">
+                    <polyline fill="#34CB00" opacity="0.6" points="10 19 10 49 18 41 26 49 26 19"></polyline>
+                    <polygon fill="#FFFFFF" points="18 23 12.1221475 26.0901699 13.2447174 19.545085 8.48943484 14.9098301 15.0610737 13.954915 18 8 20.9389263 13.954915 27.5105652 14.9098301 22.7552826 19.545085 23.8778525 26.0901699"></polygon>
+                  </g>
+                </g>
+              </svg>
+            </a>
+            <a id="stVincent">
+              <svg width="36px" height="49px" viewBox="0 0 36 49">
+                <g stroke="none">
+                  <circle fill="#1190FE" cx="18" cy="18" r="18"></circle>
+                  <g class="selected-container" style="display: none;">
+                    <polyline fill="#1190FE" opacity="0.6" points="10 19 10 49 18 41 26 49 26 19"></polyline>
+                    <polygon fill="#FFFFFF" points="18 23 12.1221475 26.0901699 13.2447174 19.545085 8.48943484 14.9098301 15.0610737 13.954915 18 8 20.9389263 13.954915 27.5105652 14.9098301 22.7552826 19.545085 23.8778525 26.0901699"></polygon>
+                  </g>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div id="actions-container">
+          <p id="error-message" style="display: none;">An error occurred. Please try again later.</p>
+          <button disabled>
+            <span class="button-text">Add Points</span>
+            <img class="button-loading" style="display: none;" src="./images/button-loading.gif">
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-firestore.js"></script>
+  <script src="./js/init-firebase.js"></script>
+  <script async src="./js/podium.js"></script>
+</body>
+</html>

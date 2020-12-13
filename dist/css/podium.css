@@ -1,0 +1,289 @@
+.page-width {
+  padding-left: calc(50% - 450px);
+  padding-right: calc(50% - 450px);
+}
+
+@media only screen and (max-width: 980px) {
+  .page-width {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media only screen and (max-width: 512px) {
+  .page-width {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+html, body {
+  font-family: "Avenir Next", "Avenir", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+header {
+  background-color: whitesmoke;
+  border-bottom: 1px solid white;
+  box-sizing: border-box;
+  height: 64px;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+}
+
+header div {
+  display: flex;
+  justify-content: space-between;
+}
+
+header div a {
+  color: #4d4d4d;
+  font-size: 17px;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+header div a.logo {
+  min-width: 68px;
+}
+
+header div img {
+  margin-top: 12px;
+}
+
+header div nav {
+  display: inline-block;
+  margin-left: -32px;
+  vertical-align: top;
+}
+
+header div nav ul {
+  display: flex;
+  justify-content: start;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+header div nav ul li {
+  margin: 0 20px;
+  position: relative;
+}
+
+header div nav ul li.active::after {
+  border-bottom: 1px solid #8F4B3D;
+  bottom: -6px;
+  content: '';
+  left: 0;
+  position: absolute;
+  width: 20px;
+}
+
+header div a.link {
+  margin: 20px 0;
+  min-width: 68px;
+  text-align: right;
+}
+
+main {
+  padding-top: 64px;
+}
+
+#podium .background {
+  background-image: url("../images/podium-background.png");
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  height: calc(100vh - 64px);
+  margin: 0 -68px 0 -68px;
+}
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.2);
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+#add-points-popup .popup-content {
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: white;
+  border-radius: 5px;
+  width: 258px;
+}
+
+#add-points-popup h3 {
+  border-bottom: whitesmoke solid 1px;
+  color: #262626;
+  font: 500 24px -apple-system-ui-serif, ui-serif, Georgia, serif;
+  margin: 0;
+  padding: 18px 0;
+  text-align: center;
+}
+
+#add-points-popup label {
+  color: #8c8c8c;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 18px 30px 6px;
+}
+
+#add-points-popup label span {
+  font-weight: 400;
+  position: absolute;
+  right: 30px;
+}
+
+#add-points-popup label a {
+  color: #8f4b3d;
+}
+
+#add-points-popup select {
+  appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  -webkit-appearance: none;
+  background: url(../images/select-arrow.svg) no-repeat;
+  background-color: whitesmoke;
+  background-position: calc(100% - 9px) 50%;
+  border: none;
+  border-radius: 5px;
+  color: #737373;
+  cursor: inherit;
+  font: 400 16px "Avenir Next", "Avenir", Helvetica, Arial, sans-serif;
+  margin: 0 30px;
+  padding: 6px 10px;
+  width: 198px;
+}
+
+#add-points-popup .stepper {
+  background: whitesmoke;
+  border-radius: 5px;
+  height: 34px;
+  margin: 0 30px 16px;
+}
+
+#add-points-popup .stepper ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#add-points-popup .stepper ul li.left, #add-points-popup .stepper ul li.right {
+  cursor: pointer;
+  width: 44px;
+}
+
+#add-points-popup .stepper ul li.left img, #add-points-popup .stepper ul li.right img {
+  margin: 10.5px 0 0 18px;
+}
+
+#add-points-popup .stepper ul li.input-container {
+  border-left: white solid 1px;
+  border-right: white solid 1px;
+  height: 34px;
+  width: 108px;
+}
+
+#add-points-popup .stepper ul li.input-container input {
+  border: none;
+  background: transparent;
+  color: #737373;
+  font: 400 16px "Avenir Next", "Avenir", Helvetica, Arial, sans-serif;
+  height: 33px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+#add-points-popup .stepper ul li.input-container input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#add-points-popup .stepper ul li.input-container input::-webkit-outer-spin-button,
+#add-points-popup .stepper ul li.input-container input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#add-points-popup #house-buttons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  margin-bottom: -8px;
+}
+
+#add-points-popup #house-buttons a {
+  cursor: pointer;
+}
+
+#add-points-popup #actions-container {
+  border-top: whitesmoke solid 1px;
+  margin-top: 17px;
+}
+
+#add-points-popup #actions-container p {
+  color: #f00;
+  line-height: 1.3rem;
+  margin: 18px 30px 0;
+  text-align: center;
+}
+
+#add-points-popup button {
+  background-color: #cccccc;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font: 500 18px "Avenir Next", "Avenir", Helvetica, Arial, sans-serif;
+  height: 36px;
+  margin: 18px 30px;
+  padding: 6px;
+  width: 198px;
+}
+
+#add-points-popup button:disabled {
+  cursor: not-allowed;
+}
+
+#add-points-popup button:hover:not(:disabled) {
+  filter: brightness(94%);
+  -moz-filter: brightness(94%);
+  -ms-filter: brightness(94%);
+  -o-filter: brightness(94%);
+  -webkit-filter: brightness(94%);
+}
+
+#add-points-popup button#campion {
+  background-color: #e01f1f;
+}
+
+#add-points-popup button#alman {
+  background-color: #f5c800;
+}
+
+#add-points-popup button#harroway {
+  background-color: #33cc00;
+}
+
+#add-points-popup button#stVincent {
+  background-color: #108ffe;
+}
+
+#add-points-popup button img {
+  visibility: visible;
+  width: 24px;
+}

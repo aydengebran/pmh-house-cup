@@ -1,0 +1,179 @@
+// The Marist House Cup
+// src > scss > podium.scss
+// Created on 18 November 2020
+// Updated 11 December 2020 (Version 1.0)
+
+@import './global.scss';
+
+// Elements
+
+main {
+  padding-top: 64px;
+}
+
+#podium {
+  .background {
+    background-image: url('../images/podium-background.png');
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    height: calc(100vh - 64px);
+    margin: 0 -68px 0 -68px;
+  }
+}
+
+.popup {
+  background-color: rgba(0, 0, 0, 0.2);
+  content: '';
+  display: block;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 10;
+}
+
+#add-points-popup {
+  .popup-content {
+    @include screen-center-align;
+    background-color: white;
+    border-radius: 5px;
+    width: 258px;
+  }
+  h3 {
+    border-bottom: $color-gray-96 solid 1px;
+    color: #262626;
+    font: 500 24px $font-serif;
+    margin: 0;
+    padding: 18px 0;
+    text-align: center;
+  }
+  label {
+    color: $color-gray-55;
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 18px 30px 6px;
+    span {
+      font-weight: 400;
+      position: absolute;
+      right: 30px;
+    }
+    a {
+      color: $color-wood;
+    }
+  }
+  select {
+    @include vendor-prefixes(appearance, none);
+    background: url(../images/select-arrow.svg) no-repeat;
+    background-color: $color-gray-96;
+    background-position: calc(100% - 9px) 50%;
+    border: none;
+    border-radius: 5px;
+    color: $color-gray-45;
+    cursor: inherit;
+    font: 400 16px $font-default;
+    margin: 0 30px;
+    padding: 6px 10px;
+    width: 198px;
+  }
+  .stepper {
+    background: $color-gray-96;
+    border-radius: 5px;
+    height: 34px;
+    margin: 0 30px 16px;
+    ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      li {
+        &.left, &.right {
+          cursor: pointer;
+          width: 44px;
+          img {
+            margin: 10.5px 0 0 18px;
+          }
+        }
+        &.input-container {
+          border-left: white solid 1px;
+          border-right: white solid 1px;
+          height: 34px;
+          width: 108px;
+          input {
+            border: none;
+            background: transparent;
+            color: $color-gray-45;
+            font: 400 16px $font-default;
+            height: 33px;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+          }
+          input[type=number] {
+            -moz-appearance: textfield;
+          }
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+  #house-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    margin-bottom: -8px;
+    a {
+      cursor: pointer;
+    }
+  }
+  #actions-container {
+    border-top: $color-gray-96 solid 1px;
+    margin-top: 17px;
+    p {
+      color: #f00;
+      line-height: 1.3rem;
+      margin: 18px 30px 0;
+      text-align: center;
+    }
+  }
+  button {
+    background-color: $color-gray-80;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font: 500 18px $font-default;
+    height: 36px;
+    margin: 18px 30px;
+    padding: 6px;
+    width: 198px;
+    &:disabled {
+      cursor: not-allowed;
+    }
+    &:hover:not(:disabled) {
+      @include vendor-prefixes(filter, brightness(94%));
+    }
+    &#campion {
+      background-color: $color-campion;
+    }
+    &#alman {
+      background-color: $color-alman;
+    }
+    &#harroway {
+      background-color: $color-harroway;
+    }
+    &#stVincent {
+      background-color: $color-stvincent;
+    }
+    img {
+      visibility: visible;
+      width: 24px;
+    }
+  }
+}

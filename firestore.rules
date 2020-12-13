@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isCatholic() {
+      return request.auth.uid != null && request.auth.token.email.matches(".*.catholic.edu.au$");
+    }
+
+    function isAdmin() {
+      return isCatholic() && request.auth.token.email.matches("^((pstephens)|(cculnane1)|(dwilliams9)|(jlichaa5)|(snorthey1)|(ahouseman1)|(lbarrydonnellan)|(jcook9)|(dcheung2)|(rmitchell2)|(drobinson)|(ahendry)|(dbateman)|(jsullivan)|(mlofaro)|(mmowad)|(akataria3)|(hhanna1)|(cbrennan)|(tcoakley)|(jphillips13)|(jjurd)|(ajones2)|(jward17)|(ndenniss)|(crodoreda)|(kwest)|(jdrake1)|(agebran2))@parra.catholic.edu.au$");
+    }
+
+    match /d/d {
+      allow read: if isCatholic();
+    }
+
+    match /p/{pointsRecordId} {
+      allow write: if isAdmin();
+    }
+
+    match /k/{klaRecordId} {
+      allow write: if isAdmin();
+    }
+
+    // Disallow all other operations
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+  }
+}

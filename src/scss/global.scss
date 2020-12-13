@@ -1,0 +1,154 @@
+// The Marist House Cup
+// src > scss > global.scss
+// Created on 6 October 2020
+// Updated 4 December 2020 (Version 1.0)
+
+// Colors
+
+$color-wood: hsl(10, 40, 40);
+$color-gold: hsl(40, 40, 60);
+$color-mid-green: hsl(166, 35, 15);
+$color-dark-green: hsl(166, 38, 11);
+
+$color-campion: hsl(0, 76, 50);
+$color-alman: hsl(49, 100, 48);
+$color-harroway: hsl(105, 100, 40);
+$color-stvincent: hsl(208, 99, 53);
+
+$color-gray-30: hsl(0, 0, 30);
+$color-gray-35: hsl(0, 0, 35);
+$color-gray-40: hsl(0, 0, 40);
+$color-gray-45: hsl(0, 0, 45);
+$color-gray-50: hsl(0, 0, 50);
+$color-gray-55: hsl(0, 0, 55);
+$color-gray-60: hsl(0, 0, 60);
+$color-gray-65: hsl(0, 0, 65);
+$color-gray-70: hsl(0, 0, 70);
+$color-gray-75: hsl(0, 0, 75);
+$color-gray-80: hsl(0, 0, 80);
+$color-gray-85: hsl(0, 0, 85);
+$color-gray-90: hsl(0, 0, 90);
+$color-gray-95: hsl(0, 0, 95);
+$color-gray-96: hsl(0, 0, 96);
+
+
+// Fonts
+
+$font-default: 'Avenir Next', 'Avenir', Helvetica, Arial, sans-serif;
+$font-heading: 'Poppins', $font-default;
+$font-serif: -apple-system-ui-serif, ui-serif, Georgia, serif;
+
+// Text Outline
+
+@mixin text-outline($color) {
+	text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
+	text-shadow: -1px 0 $color, 0 1px $color, 1px 0 $color, 0 -1px $color;
+}
+
+// Size Classes
+
+$page-margin: 40px;
+$page-max-width: 900px;
+.page-width {
+	padding-left: calc(50% - #{$page-max-width / 2});
+	padding-right: calc(50% - #{$page-max-width / 2});
+}
+@media only screen and (max-width: $page-max-width + 2 * $page-margin) {
+	.page-width {
+		padding-left: $page-margin;
+		padding-right: $page-margin;
+	}
+}
+@media only screen and (max-width: 512px) {
+	.page-width {
+		padding-left: $page-margin / 2;
+		padding-right: $page-margin / 2;
+	}
+}
+
+// Alignment
+
+@mixin horizontal-align {
+	left: 50%;
+	position: relative;
+	transform: translateX(-50%);
+}
+@mixin screen-center-align {
+	left: 50%;
+  position: fixed;
+	top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+// Vendor Prefixes
+
+@mixin vendor-prefixes($property, $style) {
+	#{$property}: $style;
+	-moz-#{$property}: $style;
+	-ms-#{$property}: $style;
+	-o-#{$property}: $style;
+	-webkit-#{$property}: $style;
+}
+
+// Elements
+
+html, body {
+	font-family: $font-default;
+	margin: 0;
+}
+
+header {
+	background-color: hsl(0, 0, 96);
+	border-bottom: 1px solid white;
+	box-sizing: border-box;
+	height: 64px;
+	position: fixed;
+	width: 100%;
+  z-index: 10;
+  div {
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: hsl(0, 0, 30);
+      font-size: 17px;
+      font-weight: 400;
+      text-decoration: none;
+      &.logo {
+        min-width: 68px;
+      }
+    }
+    img {
+      margin-top: 12px;
+    }
+    nav {
+      display: inline-block;
+      margin-left: -32px;
+      vertical-align: top;
+      ul {
+        display: flex;
+        justify-content: start;
+        list-style: none;
+        margin: 20px 0;
+        padding: 0;
+        li {
+          margin: 0 20px;
+          position: relative;
+          &.active::after {
+            border-bottom: 1px solid #8F4B3D;
+            bottom: -6px;
+            content: '';
+            left: 0;
+            position: absolute;
+            width: 20px;
+          }
+        }
+      }
+    }
+    a.link {
+      margin: 20px 0;
+      min-width: 68px;
+      text-align: right;
+    }
+  }
+}
