@@ -38,7 +38,7 @@ header div {
 }
 
 header div a {
-  color: #4d4d4d;
+  color: #666666;
   font-size: 17px;
   font-weight: 400;
   text-decoration: none;
@@ -49,7 +49,8 @@ header div a.logo {
 }
 
 header div img {
-  margin-top: 12px;
+  height: 42px;
+  margin-top: 9.5px;
 }
 
 header div nav {
@@ -86,16 +87,247 @@ header div a.link {
   text-align: right;
 }
 
+footer {
+  background-color: whitesmoke;
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+footer p {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  padding: 80px 0 30px;
+  margin: 0;
+  max-width: 390px;
+  text-align: center;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer div {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  display: flex;
+  max-width: 274px;
+  padding-bottom: 66px;
+  vertical-align: top;
+}
+
+footer div img {
+  height: 40px;
+  width: 32px;
+}
+
+footer div span {
+  margin-left: 16px;
+  margin-top: 9px;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
 main {
   padding-top: 64px;
 }
 
 #podium .background {
-  background-image: url("../images/podium-background.png");
   background-position: left bottom;
   background-repeat: no-repeat;
+  background-size: 100%;
   height: calc(100vh - 64px);
   margin: 0 -68px 0 -68px;
+  position: relative;
+}
+
+#podium .background.achs {
+  background-image: url("../images/podium-achs.png");
+}
+
+#podium .background.acsh {
+  background-image: url("../images/podium-acsh.png");
+}
+
+#podium .background.ahcs {
+  background-image: url("../images/podium-ahcs.png");
+}
+
+#podium .background.ahsc {
+  background-image: url("../images/podium-ahsc.png");
+}
+
+#podium .background.asch {
+  background-image: url("../images/podium-asch.png");
+}
+
+#podium .background.ashc {
+  background-image: url("../images/podium-ashc.png");
+}
+
+#podium .background.cahs {
+  background-image: url("../images/podium-cahs.png");
+}
+
+#podium .background.cash {
+  background-image: url("../images/podium-cash.png");
+}
+
+#podium .background.chas {
+  background-image: url("../images/podium-chas.png");
+}
+
+#podium .background.chsa {
+  background-image: url("../images/podium-chsa.png");
+}
+
+#podium .background.csah {
+  background-image: url("../images/podium-csah.png");
+}
+
+#podium .background.csha {
+  background-image: url("../images/podium-csha.png");
+}
+
+#podium .background.hacs {
+  background-image: url("../images/podium-hacs.png");
+}
+
+#podium .background.hasc {
+  background-image: url("../images/podium-hasc.png");
+}
+
+#podium .background.hcas {
+  background-image: url("../images/podium-hcas.png");
+}
+
+#podium .background.hcsa {
+  background-image: url("../images/podium-hcsa.png");
+}
+
+#podium .background.hsac {
+  background-image: url("../images/podium-hsac.png");
+}
+
+#podium .background.hsca {
+  background-image: url("../images/podium-hsca.png");
+}
+
+#podium .background.sach {
+  background-image: url("../images/podium-sach.png");
+}
+
+#podium .background.sahc {
+  background-image: url("../images/podium-sahc.png");
+}
+
+#podium .background.scah {
+  background-image: url("../images/podium-scah.png");
+}
+
+#podium .background.scha {
+  background-image: url("../images/podium-scha.png");
+}
+
+#podium .background.shac {
+  background-image: url("../images/podium-shac.png");
+}
+
+#podium .background.shca {
+  background-image: url("../images/podium-shca.png");
+}
+
+#podium .rank {
+  position: absolute;
+}
+
+#podium .rank .house {
+  display: block;
+  font-family: "BrushScriptMT";
+  margin-bottom: -0.6rem;
+  text-align: center;
+}
+
+#podium .rank .house#campion {
+  color: #e01f1f;
+}
+
+#podium .rank .house#alman {
+  color: #f5c800;
+}
+
+#podium .rank .house#harroway {
+  color: #33cc00;
+}
+
+#podium .rank .house#stVincent {
+  color: #108ffe;
+}
+
+#podium .rank .points {
+  display: block;
+  font-family: "BrushScriptMT";
+  text-align: center;
+}
+
+#podium #first {
+  bottom: 446px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#podium #first .house {
+  font-size: 80px;
+}
+
+#podium #first .points {
+  font-size: 26px;
+}
+
+#podium #second {
+  bottom: 236px;
+  left: 50%;
+  transform: translateX(calc(-50% + 15px));
+}
+
+#podium #second .house {
+  font-size: 56px;
+}
+
+#podium #second .points {
+  font-size: 24px;
+}
+
+#podium #third {
+  bottom: 131px;
+  left: 70px;
+  width: 300px;
+}
+
+#podium #third .house {
+  font-size: 44px;
+}
+
+#podium #third .points {
+  font-size: 22px;
+}
+
+#podium #fourth {
+  bottom: 64px;
+  right: 70px;
+  width: 250px;
+}
+
+#podium #fourth .house {
+  font-size: 40px;
+}
+
+#podium #fourth .points {
+  font-size: 21px;
 }
 
 .popup {

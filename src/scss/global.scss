@@ -1,7 +1,7 @@
 // The Marist House Cup
 // src > scss > global.scss
 // Created on 6 October 2020
-// Updated 4 December 2020 (Version 1.0)
+// Updated 22 January 2020 (Version 1.0)
 
 // Colors
 
@@ -37,6 +37,7 @@ $color-gray-96: hsl(0, 0, 96);
 $font-default: 'Avenir Next', 'Avenir', Helvetica, Arial, sans-serif;
 $font-heading: 'Poppins', $font-default;
 $font-serif: -apple-system-ui-serif, ui-serif, Georgia, serif;
+$font-ribbon: 'BrushScriptMT';
 
 // Text Outline
 
@@ -110,7 +111,7 @@ header {
     display: flex;
     justify-content: space-between;
     a {
-      color: hsl(0, 0, 30);
+      color: $color-gray-40;
       font-size: 17px;
       font-weight: 400;
       text-decoration: none;
@@ -119,7 +120,8 @@ header {
       }
     }
     img {
-      margin-top: 12px;
+      height: 42px;
+      margin-top: 9.5px;
     }
     nav {
       display: inline-block;
@@ -149,6 +151,38 @@ header {
       margin: 20px 0;
       min-width: 68px;
       text-align: right;
+    }
+  }
+}
+
+footer {
+  background-color: $color-gray-96;
+  color: $color-gray-55;
+  font-size: 16px;
+  p {
+    @include horizontal-align;
+    padding: 80px 0 30px;
+    margin: 0;
+    max-width: 390px;
+    text-align: center;
+  }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  div {
+    @include horizontal-align;
+    display: flex;
+    max-width: 274px;
+    padding-bottom: 66px;
+    vertical-align: top;
+    img {
+      height: 40px;
+      width: 32px;
+    }
+    span {
+      margin-left: 16px;
+      margin-top: 9px;
     }
   }
 }

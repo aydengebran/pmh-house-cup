@@ -6,10 +6,15 @@ yarn-debug.log*
 yarn-error.log*
 firebase-debug.log*
 
+# System
+.DS_Store
+**/.DS_Store
+
 # Firebase cache
 .firebase/
 
 # Firebase config
+init-firebase.js
 
 # Uncomment this if you'd like others to create their own Firebase project.
 # For a team working on the same Firebase project(s), it is recommended to leave
@@ -64,3 +69,6 @@ node_modules/
 # dotenv environment variables file
 .env
 src/.DS_Store
+
+# IDE config
+.vscode/

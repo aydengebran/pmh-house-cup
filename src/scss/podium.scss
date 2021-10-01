@@ -1,11 +1,15 @@
 // The Marist House Cup
 // src > scss > podium.scss
 // Created on 18 November 2020
-// Updated 11 December 2020 (Version 1.0)
+// Updated 1 October 2021 (Version 1.0)
 
 @import './global.scss';
 
 // Elements
+
+body {
+  background-color: $color-gray-96;
+}
 
 main {
   padding-top: 64px;
@@ -13,11 +17,156 @@ main {
 
 #podium {
   .background {
-    background-image: url('../images/podium-background.png');
+    // background-image: url('../images/podium-background.png');
     background-position: left bottom;
     background-repeat: no-repeat;
+    background-size: 100%;
     height: calc(100vh - 64px);
     margin: 0 -68px 0 -68px;
+    position: relative;
+    &.achs {
+      background-image: url('../images/podium-achs.png');
+    }
+    &.acsh {
+      background-image: url('../images/podium-acsh.png');
+    }
+    &.ahcs {
+      background-image: url('../images/podium-ahcs.png');
+    }
+    &.ahsc {
+      background-image: url('../images/podium-ahsc.png');
+    }
+    &.asch {
+      background-image: url('../images/podium-asch.png');
+    }
+    &.ashc {
+      background-image: url('../images/podium-ashc.png');
+    }
+    &.cahs {
+      background-image: url('../images/podium-cahs.png');
+    }
+    &.cash {
+      background-image: url('../images/podium-cash.png');
+    }
+    &.chas {
+      background-image: url('../images/podium-chas.png');
+    }
+    &.chsa {
+      background-image: url('../images/podium-chsa.png');
+    }
+    &.csah {
+      background-image: url('../images/podium-csah.png');
+    }
+    &.csha {
+      background-image: url('../images/podium-csha.png');
+    }
+    &.hacs {
+      background-image: url('../images/podium-hacs.png');
+    }
+    &.hasc {
+      background-image: url('../images/podium-hasc.png');
+    }
+    &.hcas {
+      background-image: url('../images/podium-hcas.png');
+    }
+    &.hcsa {
+      background-image: url('../images/podium-hcsa.png');
+    }
+    &.hsac {
+      background-image: url('../images/podium-hsac.png');
+    }
+    &.hsca {
+      background-image: url('../images/podium-hsca.png');
+    }
+    &.sach {
+      background-image: url('../images/podium-sach.png');
+    }
+    &.sahc {
+      background-image: url('../images/podium-sahc.png');
+    }
+    &.scah {
+      background-image: url('../images/podium-scah.png');
+    }
+    &.scha {
+      background-image: url('../images/podium-scha.png');
+    }
+    &.shac {
+      background-image: url('../images/podium-shac.png');
+    }
+    &.shca {
+      background-image: url('../images/podium-shca.png');
+    }
+  }
+  .rank {
+    position: absolute;
+    .house {
+      display: block;
+      font-family: $font-ribbon;
+      margin-bottom: -0.6rem;
+      text-align: center;
+      &#campion {
+        color: $color-campion;
+      }
+      &#alman {
+        color: $color-alman;
+      }
+      &#harroway {
+        color: $color-harroway;
+      }
+      &#stVincent {
+        color: $color-stvincent;
+      }
+    }
+    .points {
+      display: block;
+      font-family: $font-ribbon;
+      text-align: center;
+    }
+  }
+  #first {
+    bottom: 446px;
+    left: 50%;
+    transform: translateX(-50%);
+    .house {
+      font-size: 80px;
+      // text-shadow: 0 14px 40px rgba(247,202,0,0.60);
+    }
+    .points {
+      font-size: 26px;
+    }
+  }
+  #second {
+    bottom: 236px;
+    left: 50%;
+    transform: translateX(calc(-50% + 15px));
+    .house {
+      font-size: 56px;
+    }
+    .points {
+      font-size: 24px;
+    }
+  }
+  #third {
+    bottom: 131px;
+    left: 70px;
+    width: 300px;
+    .house {
+      font-size: 44px;
+    }
+    .points {
+      font-size: 22px;
+    }
+  }
+  #fourth {
+    bottom: 64px;
+    right: 70px;
+    width: 250px;
+    .house {
+      font-size: 40px;
+    }
+    .points {
+      font-size: 21px;
+    }
   }
 }
 

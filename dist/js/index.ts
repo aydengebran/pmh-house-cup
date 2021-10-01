@@ -3,6 +3,23 @@
 // Created on 6 October 2020
 // Updated 8 October 2020 (Version 1.0)
 
+/*
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+IMPORTANT!
+IMPORTANT!
+IMPORTANT!
+
+This file is obsolete. Do NOT compile this file as it will remove newer
+scripts in the 'index.js' file.
+
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------
+
+*/
+
 // MODULES
 
 // CONSTANTS

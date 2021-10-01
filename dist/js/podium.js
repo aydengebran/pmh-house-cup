@@ -1,7 +1,7 @@
 // The Marist House Cup
 // src > js > podium.js
 // Created on 18 November 2020
-// Updated 10 December 2020 (Version 1.0)
+// Updated 10 September 2021 (Version 1.0)
 
 // VARIABLES
 
@@ -18,10 +18,10 @@ const main = () => {
 };
 
 const setDocumentListeners = () => {
-  $('header #sign-out').on('click', signOut);
+  $('header #sign-in-out').on('click', signInOut);
 };
 
-const signOut = () => {
+const signInOut = () => {
   Authentication.signOut().then(() => {
     document.location.href = './index.html';
   }).error(error => {
@@ -31,11 +31,17 @@ const signOut = () => {
 
 const setUserListener = () => {
   Authentication.onAuthStateChanged(user => {
-    if (user && isAdminEmail(user.email))
+    if (user) {
+      $('#sign-in-out').text('Sign Out');
+    } else {
+      $('#sign-in-out').text('Sign In');
+    }
+    if (user && isAdminEmail(user.email)) {
       adminId = getIdFromEmail(user.email);
       adminLoaded = true;
       if (dataLoaded)
         layoutAdmin();
+    }
   });
 };
 
@@ -63,14 +69,21 @@ const recievedData = (data) => {
 const layoutPodium = () => {
   const housePoints = totalPointsForHouses();
   const houseRanks = houseRanksFromPoints(housePoints);
-  $('#podium #first .house').text(houseRanks[0].house);
-  $('#podium #first .points').text(houseRanks[0].points);
-  $('#podium #second .house').text(houseRanks[1].house);
-  $('#podium #second .points').text(houseRanks[1].points);
-  $('#podium #third .house').text(houseRanks[2].house);
-  $('#podium #third .points').text(houseRanks[2].points);
-  $('#podium #fourth .house').text(houseRanks[3].house);
-  $('#podium #fourth .points').text(houseRanks[3].points);
+  const houseRanksCode = houseRanks[0].house[0] + houseRanks[1].house[0] + houseRanks[2].house[0] + houseRanks[3].house[0];
+  $('#podium .background').attr('class', 'background');
+  $('#podium .background').addClass(houseRanksCode);
+  $('#podium #first .house').text(fullHouseName(houseRanks[0].house));
+  $('#podium #first .house').attr('id', houseRanks[0].house);
+  $('#podium #first .points').text(`${houseRanks[0].points} Points`);
+  $('#podium #second .house').text(fullHouseName(houseRanks[1].house));
+  $('#podium #second .house').attr('id', houseRanks[1].house);
+  $('#podium #second .points').text(`${houseRanks[1].points} Points`);
+  $('#podium #third .house').text(fullHouseName(houseRanks[2].house));
+  $('#podium #third .house').attr('id', houseRanks[2].house);
+  $('#podium #third .points').text(`${houseRanks[2].points} Points`);
+  $('#podium #fourth .house').text(fullHouseName(houseRanks[3].house));
+  $('#podium #fourth .house').attr('id', houseRanks[3].house);
+  $('#podium #fourth .points').text(`${houseRanks[3].points} Points`);
 };
 
 const totalPointsForHouses = () => {
@@ -97,6 +110,17 @@ const houseRanksFromPoints = housePoints => {
   ];
   houseRanks.sort((a, b) => a.points < b.points);
   return houseRanks;
+};
+
+const fullHouseName = shortHouseName => {
+  if (shortHouseName === 'campion')
+    return 'Campion';
+  else if (shortHouseName === 'alman')
+    return 'Alman';
+  else if (shortHouseName === 'harroway')
+    return 'Harroway';
+  else if (shortHouseName === 'stVincent')
+    return 'St. Vincent';
 };
 
 const isAdminEmail = email => {
@@ -144,19 +168,11 @@ const didSelectHouseColor = event => {
   $('#add-points-popup #house-buttons a .selected-container').hide();
   const $selectedButton = $(event.currentTarget);
   $selectedButton.find('.selected-container').show();
-  let selectedHouse = event.currentTarget.id;
+  const selectedHouse = event.currentTarget.id;
   const $submitButton = $('#add-points-popup button');
   $submitButton.attr('id', selectedHouse);
   $submitButton.prop('disabled', false);
-  if (selectedHouse === 'campion')
-    selectedHouse = 'Campion';
-  else if (selectedHouse === 'alman')
-    selectedHouse = 'Alman';
-  else if (selectedHouse === 'harroway')
-    selectedHouse = 'Harroway';
-  else if (selectedHouse === 'stVincent')
-    selectedHouse = 'St. Vincent';
-  $('#add-points-popup #selected-house').text(selectedHouse);
+  $('#add-points-popup #selected-house').text(fullHouseName(selectedHouse));
 };
 
 const addKlaSelectOptions = () => {
@@ -253,7 +269,7 @@ const klaIsEnabledForUser = klaRecord => {
 };
 
 /**
- * Each KLA has 100 points except for 'Sport' which has 130.
+ * Each KLA has 100 points except for 'Sport' which has 100000.
  *
  * @param {*} klaRecord
  * @return {number} 
@@ -266,7 +282,7 @@ const remainingPointsForKla = klaRecord => {
   });
   let remaining = 100 - used;
   if (klaRecord.name === 'Sport')
-  remaining = 130 - used;
+  remaining = 100000 - used;
   if (remaining < 0)
     remaining = 0;
   return remaining;

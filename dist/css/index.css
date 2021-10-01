@@ -38,7 +38,7 @@ header div {
 }
 
 header div a {
-  color: #4d4d4d;
+  color: #666666;
   font-size: 17px;
   font-weight: 400;
   text-decoration: none;
@@ -49,7 +49,8 @@ header div a.logo {
 }
 
 header div img {
-  margin-top: 12px;
+  height: 42px;
+  margin-top: 9.5px;
 }
 
 header div nav {
@@ -84,6 +85,47 @@ header div a.link {
   margin: 20px 0;
   min-width: 68px;
   text-align: right;
+}
+
+footer {
+  background-color: whitesmoke;
+  color: #8c8c8c;
+  font-size: 16px;
+}
+
+footer p {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  padding: 80px 0 30px;
+  margin: 0;
+  max-width: 390px;
+  text-align: center;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer div {
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%);
+  display: flex;
+  max-width: 274px;
+  padding-bottom: 66px;
+  vertical-align: top;
+}
+
+footer div img {
+  height: 40px;
+  width: 32px;
+}
+
+footer div span {
+  margin-left: 16px;
+  margin-top: 9px;
 }
 
 main {

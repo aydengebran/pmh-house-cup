@@ -1,7 +1,7 @@
 // The Marist House Cup
 // functions > src > index.ts
 // Created on 4 December 2020
-// Updated 10 December 2020 (Version 1.0)
+// Updated 10 September 2020 (Version 1.0)
 
 // MODULES
 
@@ -55,7 +55,7 @@ const activityFieldError = (activityField: any): (Error | null) => {
 const pointsFieldError = (pointsField: any): (Error | null) => {
   if (typeof pointsField !== 'number')
     return new Error('\'points\' field must be of type \'number\'');
-  if (pointsField < 0 || pointsField > 100)
+  if (pointsField < 0 || pointsField > 1000000) // FIXME: The 100 point limit has been temporarily increased to 1000000
     return new Error('\'points\' field must have a value between 0 and 100 (inclusive)');
   return null;
 };
